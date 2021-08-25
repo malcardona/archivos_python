@@ -27,7 +27,16 @@ def ej3():
     # para cumplir con el enunciado del ejercicio
 
     # Comenzar aquí, recuerde el identado dentro de esta funcion
-    
+
+    #header =['tornillos', 'tuercas', 'arandelas']
+    with open(archivo) as csvfile:
+        stock = list(csv.DictReader(csvfile))
+
+    n = 0
+    for i in range(len(stock)):
+        t = int(stock[i].get('tornillos'))
+        n += t
+    print('Hay {} tornillos en stock'.format(n))
 
 
 def ej4():
@@ -47,6 +56,24 @@ def ej4():
     # utilizando "try except", tema que se verá la clase que viene.
 
     # Comenzar aquí, recuerde el identado dentro de esta funcion
+    
+    with open(archivo) as csvfile:
+        prop = list(csv.DictReader(csvfile))
+
+    a2 = 0
+    a3 = 0
+    for i in range(len(prop)):
+        try:
+            t = int(prop[i].get('ambientes'))
+        except:
+            pass
+        if t == 2:
+            a2 += 1
+        elif t == 3:
+            a3 += 1
+    print('Hay {} apartamentos de 2 ambientes y {} apartamentos de 3 ambientes disponibles'.format(a2, a3))
+
+            
 
 
 if __name__ == '__main__':
