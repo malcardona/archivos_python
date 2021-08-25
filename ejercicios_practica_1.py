@@ -70,26 +70,24 @@ def ej2():
     # imprimir en pantalla con print el diccionario con el stock final
 
     # Comenzar aquí, recuerde el identado dentro de esta funcion
-    #n = 0
+    producto = 0
 
+          
+            
     while True:
         producto = str(input('ingrese el producto que desea actualizar: \n'))
         if producto == 'FIN':
-            False
-            print(stock)
-        for k,v in stock.items():
-            #producto = str(input('ingrese el producto que desea actualizar: \n'))
+            break
+        p = stock.get(producto)
+        if p == None:
+            print('Error! el producto no esta en stock')
+        for k,v in stock.items(): 
             if k == producto:
+                s = v
                 n = int(input('Cuanto stock desea agregrar: \n'))
-                if n < 0:
-                    print('Ingrese un dato valido')
-                else:
-                    v += n
-            else:
-                print('Error! el producto no esta en stock')
-      
-         
-
+                stock[producto] = s + n
+    print(stock)    
+        
 
 if __name__ == '__main__':
     print("Bienvenidos a otra clase de Inove con Python")
