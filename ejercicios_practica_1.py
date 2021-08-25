@@ -85,7 +85,10 @@ def ej2():
             if k == producto:
                 s = v
                 n = int(input('Cuanto stock desea agregrar: \n'))
-                stock[producto] = s + n
+                if n > 0:
+                    stock[producto] = s + n
+                else:
+                    print('Error! ingrese un dato válido')
     print(stock)    
         
 
